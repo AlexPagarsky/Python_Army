@@ -1,12 +1,11 @@
 from Ability.Ability import *
-from Unit.Vampire.Vampire import *
+from Unit.Vampire import Vampire
 
 
 class Vampire_ability(Ability):
 
     def __init__(self, owner : Vampire):
         Ability.__init__(self, owner)
-
 
     def attack(self, enemy : Unit):
         if enemy.is_alive():

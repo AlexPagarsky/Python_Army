@@ -1,18 +1,15 @@
-from Unit.Unit import *
+from Unit.Unit import Unit
 from config.config import *
-from Ability.Vampire_ability.Vampire_ability import *
-
+import Ability.Vampire_ability.Vampire_ability as vamp_ab
 
 class Vampire(Unit):
 
     def __init__(self, name : str = "Vampire",
-                 hp : int = Hp.VAMPIRE_HP,
-                 dmg : int = Dmg.VAMPIRE_DMG):
-        Unit.__init__(name, hp, dmg)
-        self.ability = Vampire_ability(self)
+                 hp : int = Hp.VAMPIRE_HP.value,
+                 dmg : int = Dmg.VAMPIRE_DMG.value):
+        Unit.__init__(self, name, hp, dmg)
+        self.ability = vamp_ab.Vampire_ability(self)
         self.state.type = "undead"
-
-
 
 
 

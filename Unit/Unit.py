@@ -3,6 +3,7 @@ from Ability.Ability import *
 from abc import ABC, abstractmethod
 import config
 
+
 class Unit():
 
     def __init__(self, name : str, hp : int, dmg : int):
@@ -48,10 +49,10 @@ class Unit():
         self.ability.counter_attack(enemy)
 
     def __str__(self) -> str:
-        return str(self.name + ", " +  str(self.hp) + "/" + str(self.hp_limit) + ", " + str(self.dmg) + " DMG")
+        return str(self.name + ", " +  str(self.hp) + "/" + str(self.hp_limit) + " HP, " + str(self.dmg) + " DMG")
 
 
 if __name__ == '__main__':
-    # test = Unit("test", 122, 12)
+    test = Unit("test", 122, 12)
     print(test.hp)
-    # print(test.is_alive())
+    print(test.is_alive())

@@ -6,6 +6,7 @@ class Hp(Enum):
     ROGUE_HP = 70
     BERSERKER_HP = 120
     VAMPIRE_HP = 80
+    WEREWOLF_BASE_HP = 100
 
 
 class Dmg(Enum):
@@ -13,3 +14,4 @@ class Dmg(Enum):
     ROGUE_DMG = 35
     BERSERKER_DMG = 50
     VAMPIRE_DMG = 25
+    WEREWOLF_BASE_DMG = 25
