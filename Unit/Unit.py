@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 import config
 
 
-class Unit():
+class Unit:
 
     def __init__(self, name : str, hp : int, dmg : int):
         self.state = State(name, hp, dmg)

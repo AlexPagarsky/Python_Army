@@ -12,7 +12,6 @@ class Vampire(Unit):
         self.state.type = "undead"
 
 
-
 if __name__ == "__main__":
     tes = Vampire()
     print(tes)

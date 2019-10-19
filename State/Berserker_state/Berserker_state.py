@@ -5,7 +5,7 @@ from config.config import *
 class Berserker_state(State):
 
     def __init__(self, name : str, hp : int, dmg : int):
-        State.__init__(name, hp, dmg)
+        State.__init__(self, name, hp, dmg)
 
     def take_damage(self, dmg : int):
         self.hp -= dmg

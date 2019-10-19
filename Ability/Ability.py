@@ -6,7 +6,7 @@ class Ability:
         self.owner = owner
 
     def attack(self, enemy : Unit):
-        if enemy.is_alive():
+        if enemy.is_alive() and enemy != self:
             enemy.take_damage(self.owner.dmg)
             enemy.counter_attack(self)
 
