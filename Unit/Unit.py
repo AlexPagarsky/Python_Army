@@ -1,7 +1,5 @@
 from State.State import State
 from Ability.Ability import *
-from abc import ABC, abstractmethod
-import config
 
 
 class Unit:
