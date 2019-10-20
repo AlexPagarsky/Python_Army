@@ -1,5 +1,3 @@
-from Unit.Unit import *
-from config.config import *
 from State.Berserker_state.Berserker_state import *
 
 class Berserker(Unit):

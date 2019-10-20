@@ -1,0 +1,2 @@
+class AttacksItself(Exception):
+    pass

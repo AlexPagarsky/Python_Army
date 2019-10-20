@@ -1,5 +1,5 @@
 from Unit.Unit import Unit
-from config.config import *
+from config import *
 import Ability.Vampire_ability.Vampire_ability as vamp_ab
 
 class Vampire(Unit):

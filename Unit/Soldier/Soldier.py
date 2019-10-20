@@ -1,5 +1,5 @@
 from Unit.Unit import Unit
-from config.config import *
+from config import *
 
 
 class Soldier(Unit):

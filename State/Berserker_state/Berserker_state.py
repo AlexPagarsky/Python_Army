@@ -1,5 +1,4 @@
 from Unit.Unit import *
-from config.config import *
 
 
 class Berserker_state(State):

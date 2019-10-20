@@ -1,5 +1,5 @@
 from Unit.Unit import *
-from config.config import *
+from config import *
 
 
 class Werewolf(Unit):

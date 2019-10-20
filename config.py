@@ -15,3 +15,13 @@ class Dmg(Enum):
     BERSERKER_DMG = 50
     VAMPIRE_DMG = 25
     WEREWOLF_BASE_DMG = 25
+
+
+class SpellDmg(Enum):
+    FIREBALL_DMG = 50
+    LIGHTNING_DMG = 80
+
+
+class SpellCost(Enum):
+    FIREBALL_COST = 30
+    LIGHTNING_COST = 50

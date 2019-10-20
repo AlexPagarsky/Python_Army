@@ -1,5 +1,5 @@
 from State.State import *
-from config.config import *
+from config import *
 
 
 class Werewolf_turned_state(State):

@@ -1,6 +1,5 @@
-from Unit.Unit import Unit
 from Ability.Rogue_ability.Rogue_ability import *
-from config.config import *
+from config import *
 
 class Rogue(Unit):
 
