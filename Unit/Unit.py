@@ -38,7 +38,7 @@ class Unit:
         self.state.take_damage(dmg)
 
     def take_magic_damage(self, dmg : int):
-        self.take_magic_damage(dmg)
+        self.take_damage(dmg)
 
     def attack(self, enemy):
         self.ability.attack(enemy)

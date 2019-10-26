@@ -7,7 +7,10 @@ class Hp(Enum):
     BERSERKER_HP = 120
     VAMPIRE_HP = 80
     WEREWOLF_BASE_HP = 100
+    WIZARD_HP = 60
 
+class Mp(Enum):
+    WIZARD_MP = 100
 
 class Dmg(Enum):
     SOLDIER_DMG = 20
@@ -15,6 +18,7 @@ class Dmg(Enum):
     BERSERKER_DMG = 50
     VAMPIRE_DMG = 25
     WEREWOLF_BASE_DMG = 25
+    WIZARD_DMG = 15
 
 
 class SpellDmg(Enum):

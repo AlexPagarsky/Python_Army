@@ -33,4 +33,4 @@ if __name__ == "__main__":
     test.take_damage(40)
     print(test)
     test.turn()
-    print(test)
+    print(test.__class__.__name__)

@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class AbstractSpell(ABC):
@@ -7,5 +7,6 @@ class AbstractSpell(ABC):
         self.dmg = dmg
         self.cost = cost
 
+    @abstractmethod
     def damage(self, target):
         pass
