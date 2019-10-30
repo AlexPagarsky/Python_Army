@@ -10,3 +10,7 @@ class AbstractSpell(ABC):
     @abstractmethod
     def damage(self, target):
         pass
+
+    @property
+    def name(self) -> str:
+        return self.__

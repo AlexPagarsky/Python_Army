@@ -1,6 +1,7 @@
 from Unit.Unit import Unit
 from MagicState.MagicState import MagicState
 from MagicAbility.MagicAbility import MagicAbility
+from SpellBook.SpellBook import SpellBook
 from exceptions import *
 
 
@@ -21,3 +22,9 @@ class SpellCaster(Unit):
 
     def cast_spell(self, spell, target):
         self.magic_ability.cast_spell(spell, target)
+
+    def __str__(self) -> str:
+        return str(self.name + ", "
+                   +  str(self.hp) + "/" + str(self.hp_limit) + " HP, "
+                   + str(self.mp) + "/" +str(self.mp_limit) + " MP, "
+                   + str(self.dmg) + " DMG")
