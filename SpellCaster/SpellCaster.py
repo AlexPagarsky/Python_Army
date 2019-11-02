@@ -11,6 +11,7 @@ class SpellCaster(Unit):
         Unit.__init__(self, name, hp, dmg)
         self.magic_state = MagicState(mp=mp, mp_limit=mp)
         self.magic_ability = MagicAbility(self)
+        self.spellbook = SpellBook()
 
     @property
     def mp(self) -> int:
@@ -21,10 +22,10 @@ class SpellCaster(Unit):
         return self.magic_state.mp_limit
 
     def cast_spell(self, spell, target):
-        self.magic_ability.cast_spell(spell, target)
+        self.magic_ability.cast_spell(getattr(self.spellbook, spell), target)
 
     def __str__(self) -> str:
         return str(self.name + ", "
-                   +  str(self.hp) + "/" + str(self.hp_limit) + " HP, "
-                   + str(self.mp) + "/" +str(self.mp_limit) + " MP, "
+                   + str(self.hp) + "/" + str(self.hp_limit) + " HP, "
+                   + str(self.mp) + "/" + str(self.mp_limit) + " MP, "
                    + str(self.dmg) + " DMG")

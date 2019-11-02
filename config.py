@@ -8,9 +8,15 @@ class Hp(Enum):
     VAMPIRE_HP = 80
     WEREWOLF_BASE_HP = 100
     WIZARD_HP = 60
+    HEALER_HP = 50
+    PRIEST_HP = 50
+
 
 class Mp(Enum):
     WIZARD_MP = 100
+    HEALER_MP = 120
+    PRIEST_MP = 90
+
 
 class Dmg(Enum):
     SOLDIER_DMG = 20
@@ -19,13 +25,19 @@ class Dmg(Enum):
     VAMPIRE_DMG = 25
     WEREWOLF_BASE_DMG = 25
     WIZARD_DMG = 15
+    HEALER_DMG = 5
+    PRIEST_DMG = 5
 
 
 class SpellDmg(Enum):
     FIREBALL_DMG = 50
     LIGHTNING_DMG = 80
+    HEAL_REG = 40
+    BLESS_REG = 80
 
 
 class SpellCost(Enum):
     FIREBALL_COST = 30
     LIGHTNING_COST = 50
+    HEAL_COST = 30
+    BLESS_COST = 45

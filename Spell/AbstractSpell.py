@@ -13,4 +13,4 @@ class AbstractSpell(ABC):
 
     @property
     def name(self) -> str:
-        return self.__
+        return self.__class__.__name__
