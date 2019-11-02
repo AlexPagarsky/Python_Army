@@ -35,10 +35,6 @@ if __name__ == "__main__":
     print(nec, '\n', sold, '\n', "--------------------------")
 
     nec.attack(sold)
-
-    print(nec, '\n', sold, '\n', "--------------------------2")
-
-    nec.attack(sold)
     print(nec, '\n', sold, '\n', "--------------------------")
 
 
