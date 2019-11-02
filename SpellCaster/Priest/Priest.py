@@ -12,6 +12,6 @@ class Priest(SpellCaster):
         SpellCaster.__init__(self, name, hp, mp, dmg)
         self.spellbook.add(
             Fireball.Fireball(SpellDmg.FIREBALL_DMG.value//2),
-            Heal.Heal(),
-            Blessing.Blessing()
+            Blessing.Blessing(),
+            Heal.Heal()
         )

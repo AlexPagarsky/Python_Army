@@ -12,6 +12,7 @@ class Hp(Enum):
     PRIEST_HP = 50
     WARLOCK_HP = 70
     DEMON_HP = 50
+    NECROMANCER_HP = 60
 
 
 class Mp(Enum):
@@ -19,6 +20,7 @@ class Mp(Enum):
     HEALER_MP = 120
     PRIEST_MP = 90
     WARLOCK_MP = 90
+    NECROMANCER_MP = 120
 
 
 class Dmg(Enum):
@@ -32,6 +34,7 @@ class Dmg(Enum):
     PRIEST_DMG = 5
     WARLOCK_DMG = 20
     DEMON_DMG = 30
+    NECROMANCER_DMG = 20
 
 
 class SpellDmg(Enum):

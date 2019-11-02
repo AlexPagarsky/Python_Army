@@ -1,12 +1,14 @@
+from Observer.Observable import Observable
 from State.State import State
 from Ability.Ability import *
 
 
-class Unit:
+class Unit(Observable):
 
     def __init__(self, name : str, hp : int, dmg : int):
         self.state = State(name, hp, dmg)
         self.ability = Ability(self)
+        self.observers = set()
 
     @property
     def hp(self) -> int:
@@ -36,6 +38,8 @@ class Unit:
 
     def take_damage(self, dmg : int):
         self.state.take_damage(dmg)
+        if self.hp == 0:
+            self.notify(self.observers)
 
     def take_magic_damage(self, dmg : int):
         self.take_damage(dmg)

@@ -12,5 +12,5 @@ class Ability:
             enemy.counter_attack(self.owner)
 
     def counter_attack(self, enemy : Unit):
-        if enemy.is_alive():
-            enemy.take_damage(int(self.owner.dmg / 2))
+        if self.owner.is_alive() and enemy.is_alive():
+            enemy.take_damage(self.owner.dmg // 2)
