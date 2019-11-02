@@ -1,5 +1,6 @@
 import Unit
 
+
 class Ability:
 
     def __init__(self, owner : Unit):
@@ -8,7 +9,7 @@ class Ability:
     def attack(self, enemy : Unit):
         if enemy.is_alive() and enemy != self:
             enemy.take_damage(self.owner.dmg)
-            enemy.counter_attack(self)
+            enemy.counter_attack(self.owner)
 
     def counter_attack(self, enemy : Unit):
         if enemy.is_alive():

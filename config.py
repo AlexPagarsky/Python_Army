@@ -10,12 +10,15 @@ class Hp(Enum):
     WIZARD_HP = 60
     HEALER_HP = 50
     PRIEST_HP = 50
+    WARLOCK_HP = 70
+    DEMON_HP = 50
 
 
 class Mp(Enum):
     WIZARD_MP = 100
     HEALER_MP = 120
     PRIEST_MP = 90
+    WARLOCK_MP = 90
 
 
 class Dmg(Enum):
@@ -27,6 +30,8 @@ class Dmg(Enum):
     WIZARD_DMG = 15
     HEALER_DMG = 5
     PRIEST_DMG = 5
+    WARLOCK_DMG = 20
+    DEMON_DMG = 30
 
 
 class SpellDmg(Enum):
@@ -41,3 +46,4 @@ class SpellCost(Enum):
     LIGHTNING_COST = 50
     HEAL_COST = 30
     BLESS_COST = 45
+    DEMON_SUMM_COST = 30
