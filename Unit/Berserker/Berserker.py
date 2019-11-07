@@ -1,4 +1,6 @@
 from State.Berserker_state.Berserker_state import *
+from config import *
+
 
 class Berserker(Unit):
 
@@ -7,6 +9,7 @@ class Berserker(Unit):
                  dmg : int = Dmg.BERSERKER_DMG.value):
         Unit.__init__(self, name, hp, dmg)
         self.state = Berserker_state(name, hp, dmg)
+
 
 if __name__ == "__main__":
     beer = Berserker()
