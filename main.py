@@ -1,4 +1,2 @@
-import config
-import Unit.Soldier
-
-sold = Unit.Soldier()
+import Unit
+import SpellCaster

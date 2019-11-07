@@ -33,5 +33,9 @@ class VampireAbility(Ability):
                 target.ability = VampireAbility(target)
                 target.state.type = "undead"
                 target.state.turnable = False
-            else:
-                raise CantTurn(self.__class__.__name__, target)
+                if hasattr(target, "magic_ability"):
+                    del target.magic_ability
+                    del target.magic_state
+                    del target.spellbook
+                else:
+                    raise CantTurn(self.__class__.__name__, target)
