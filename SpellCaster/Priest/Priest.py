@@ -15,3 +15,12 @@ class Priest(SpellCaster):
             Blessing.Blessing(),
             Heal.Heal()
         )
+
+    def cast_spell(self, spell, target):
+        if target.type == "Undead":
+            spl = getattr(self.spellbook, spell)
+            spl.dmg *= 2
+            self.magic_ability.cast_spell(spl, target)
+            spl.dmg /= 2
+        else:
+            self.magic_ability.cast_spell(getattr(self.spellbook, spell), target)

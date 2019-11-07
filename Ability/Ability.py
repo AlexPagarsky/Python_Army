@@ -3,7 +3,7 @@ import Unit
 
 class Ability:
 
-    def __init__(self, owner : Unit):
+    def __init__(self, owner):
         self.owner = owner
 
     def attack(self, enemy : Unit):

@@ -11,6 +11,7 @@ class Necromancer(SpellCaster, Observer):
                  mp : int = Mp.NECROMANCER_MP.value,
                  dmg : int = Dmg.NECROMANCER_DMG.value):
         SpellCaster.__init__(self, name, hp, mp, dmg)
+        self.type = "Undead"
 
     def update(self):
         self.add_hp(15)

@@ -11,6 +11,7 @@ class Vampire(Unit):
         Unit.__init__(self, name, hp, dmg)
         self.ability = Vab.VampireAbility(self)
         self.state.type = "undead"
+        self.state.turnable = False
 
 
 if __name__ == "__main__":

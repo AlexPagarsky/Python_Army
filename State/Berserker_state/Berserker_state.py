@@ -13,6 +13,5 @@ class Berserker_state(State):
         else:
             self.dmg += 10
 
-
     def take_magic_damage(self, dmg : int):
         pass

@@ -7,7 +7,7 @@ class State:
         self.hp = hp
         self.hp_limit = hp
         self.dmg = dmg
-        self.turnable = False
+        self.turnable = True
 
     def take_damage(self, dmg : int):
         self.hp -= dmg

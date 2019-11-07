@@ -1,5 +1,10 @@
 from Unit.Unit import *
+from State.WerewolfState.WerewolfState import WerewolfState
+from Ability.WerewolfAbility.WerewolfAbility import WerewolfAbility
+from Unit.Vampire.Vampire import Vampire
+from Unit.Soldier.Soldier import Soldier
 from config import *
+from exceptions import *
 
 
 class Werewolf(Unit):
@@ -8,29 +13,26 @@ class Werewolf(Unit):
                  hp : int = Hp.WEREWOLF_BASE_HP.value,
                  dmg : int = Dmg.WEREWOLF_BASE_DMG.value):
         Unit.__init__(self, name=name, hp=hp, dmg=dmg)
+        self.state = WerewolfState(name, hp, dmg)
+        self.ability = WerewolfAbility(self)
         self.state.type = "human"
 
-    def turn(self):
-        if self.state.type == "human":
-            self.state.type = "undead"
-            self.state.dmg *= 2
-            self.state.hp_limit += 50
-            self.state.hp = self.state.hp_limit
-        else:
-            self.state.dmg = Dmg.WEREWOLF_BASE_DMG.value
-            if self.hp > Hp.WEREWOLF_BASE_HP.value:
-                self.state.hp = int(self.state.hp / self.state.hp_limit * 100)
-            self.state.hp_limit = Hp.WEREWOLF_BASE_HP.value
-            self.state.type = "human"
-
+    def turn(self, target=None):
+        self.ability.turn(target)
 
 
 if __name__ == "__main__":
-    test = Werewolf()
-    print(test)
-    test.turn()
-    print(test)
-    test.take_damage(40)
-    print(test)
-    test.turn()
-    print(test.__class__.__name__)
+    woof = Werewolf()
+    sold = Soldier()
+    vamp = Vampire()
+
+    print(woof, '\n', sold)
+    woof.turn(sold)
+    sold.state.name = "Zmey"
+    print(woof, '\n', sold)
+    sold.ability.turn()
+    sold.ability.turn()
+    # sold.ability.turn()
+    woof.turn()
+    print(woof, sold)
+    # sold.turn(vamp)

@@ -9,3 +9,4 @@ class Demon(Soldier):
                          Hp.DEMON_HP.value,
                          Dmg.DEMON_DMG.value)
         self.owner = owner
+        self.type = "Undead"
