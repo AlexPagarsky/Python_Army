@@ -12,20 +12,32 @@ class VampireAbility(Ability):
         Ability.__init__(self, owner)
 
     def attack(self, enemy : Unit):
-        if enemy.is_alive():
-            enemy.take_damage(self.owner.dmg)
-            self.owner.add_hp(enemy.hp // 10)
-            enemy.counter_attack(self)
+        if self.owner.is_alive():
+            if enemy.is_alive():
+                enemy.take_damage(self.owner.dmg)
+                self.owner.add_hp(enemy.hp // 10)
+                enemy.counter_attack(self)
+            else:
+                raise TargetIsDead()
+        else:
+            raise CantDoCauseDead()
 
     def counter_attack(self, enemy : Unit):
-        if enemy.is_alive():
-            enemy.take_damage(self.owner.dmg // 2)
-            self.owner.add_hp(enemy.hp // 10)
+        if self.owner.is_alive():
+            if enemy.is_alive():
+                enemy.take_damage(self.owner.dmg // 2)
+                self.owner.add_hp(enemy.hp // 10)
+            else:
+                raise TargetIsDead()
+        else:
+            raise CantDoCauseDead()
 
     def turn(self, target):
         if target == self:
             raise CantTurn(self.owner.__class__.name, target)
         else:
+            if not target.is_alive():
+                raise TargetIsDead()
             if target.turnable:
                 target.state = State(name=target.name,
                                      hp=Hp.VAMPIRE_HP.value,
