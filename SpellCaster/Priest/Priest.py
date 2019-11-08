@@ -17,7 +17,7 @@ class Priest(SpellCaster):
         )
 
     def cast_spell(self, spell, target):
-        if target.type == "Undead":
+        if target.type == "undead":
             spl = getattr(self.spellbook, spell)
             spl.dmg *= 2
             self.magic_ability.cast_spell(spl, target)

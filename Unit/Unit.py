@@ -42,7 +42,9 @@ class Unit(Observable):
             self.notify(self.observers)
 
     def take_magic_damage(self, dmg : int):
-        self.take_damage(dmg)
+        self.state.take_magic_damage(dmg)
+        if self.hp == 0:
+            self.notify(self.observers)
 
     def attack(self, enemy):
         self.ability.attack(enemy)

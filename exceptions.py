@@ -2,10 +2,14 @@ class AttacksItself(Exception):
     pass
 
 
+class TargetIsDead(Exception):
+    pass
+
+
 class CantDoCauseDead(Exception):
 
     def __init__(self, ent):
-        print("Entity " + ent + " can't perform actions")
+        print("Entity " + ent.name + " can't perform actions")
 
 
 class CantTurn(Exception):
