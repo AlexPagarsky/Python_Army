@@ -10,13 +10,17 @@ class Ability:
         if enemy is self.owner:
             raise AttacksItself()
         if not self.owner.is_alive():
-            raise CantDoCauseDead()
+            raise CantDoCauseDead(self.owner)
         if enemy.is_alive():
             enemy.take_damage(self.owner.dmg)
             enemy.counter_attack(self.owner)
+        else:
+            raise TargetIsDead()
 
     def counter_attack(self, enemy : Unit):
         if not self.owner.is_alive():
-            raise CantDoCauseDead()
+            raise CantDoCauseDead(self.owner)
         if enemy.is_alive():
             enemy.take_damage(self.owner.dmg // 2)
+        else:
+            raise TargetIsDead()

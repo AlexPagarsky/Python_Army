@@ -12,6 +12,6 @@ class WerewolfState(State):
 
     def take_magic_damage(self, dmg : int):
         if self.type == "undead":
-            self.take_damage(dmg*2)
+            self.take_damage(int(dmg*1.5))
         else:
             self.take_damage(dmg)
