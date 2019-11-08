@@ -24,6 +24,8 @@ class WerewolfAbility(Ability):
                     self.owner.state.hp = self.owner.state.hp // self.owner.state.hp_limit * 100
                 self.owner.state.hp_limit = Hp.WEREWOLF_BASE_HP.value
         else:
+            if not target.is_alive():
+                raise TargetIsDead()
             if target.turnable:
                 health = (target.hp // target.hp_limit) * Hp.WEREWOLF_BASE_HP.value
                 target.state = WerewolfState()
