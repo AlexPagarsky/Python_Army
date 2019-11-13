@@ -120,5 +120,74 @@ class TestWerewolf(unittest.TestCase):
             wof2.turn(wof2)
 
 
+class TestWizard(unittest.TestCase):
+
+    def test_turnable(self):
+        wiz = Wizard.Wizard()
+        self.assertEqual(wiz.turnable, True)
+
+    def test_attk(self):
+        wiz = Wizard.Wizard()
+        sold = Soldier.Soldier()
+        wiz.attack(sold)
+        self.assertEqual(sold.hp, sold.hp_limit - 15)
+
+    def test_mana(self):
+        wiz = Wizard.Wizard()
+        sold = Soldier.Soldier()
+        sold.state.hp = 100000
+        wiz.cast_spell("Fireball", sold)
+        wiz.cast_spell("Fireball", sold)
+        wiz.cast_spell("Fireball", sold)
+        with self.assertRaises(exceptions.OutOfMana):
+            wiz.cast_spell("Fireball", sold)
+
+    def test_except(self):
+        wiz = Wizard.Wizard()
+        wiz2 = Wizard.Wizard()
+        sold = Soldier.Soldier()
+        with self.assertRaises(exceptions.AttacksItself):
+            wiz.cast_spell("Fireball", wiz)
+        with self.assertRaises(exceptions.CantDoCauseDead):
+            wiz.take_damage(100000)
+            wiz.cast_spell("Fireball", sold)
+        with self.assertRaises(exceptions.TargetIsDead):
+            wiz2.attack(wiz)
+        with self.assertRaises(exceptions.TargetIsDead):
+            wiz2.cast_spell("Lightning", wiz)
+
+
+class TestHealer(unittest.TestCase):
+
+    def test_turnable(self):
+        hel = Healer.Healer()
+        self.assertEqual(hel.turnable, True)
+
+    def test_attk(self):
+        hel = Healer.Healer()
+        sold = Soldier.Soldier()
+        hel.attack(sold)
+        self.assertEqual(sold.hp, sold.hp_limit - 5)
+
+    def test_except(self):
+        hel = Healer.Healer()
+        hel2 = Healer.Healer()
+        hel3 = Healer.Healer()
+        hel2.take_damage(100000)
+        with self.assertRaises(exceptions.TargetIsDead):
+            hel.cast_spell("Heal", hel2)
+        with self.assertRaises(exceptions.CantDoCauseDead):
+            hel2.cast_spell("Heal", hel)
+        with self.assertRaises(exceptions.AttacksItself):
+            hel.attack(hel)
+        with self.assertRaises(exceptions.OutOfMana):
+            hel.cast_spell("Heal", hel3)
+            hel.cast_spell("Heal", hel3)
+            hel.cast_spell("Heal", hel3)
+            hel.cast_spell("Heal", hel3)
+            hel.cast_spell("Heal", hel3)
+            print(hel, hel3)
+
+
 if __name__ == "__main__":
     unittest.main()
