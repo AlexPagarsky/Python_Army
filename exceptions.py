@@ -6,6 +6,10 @@ class TargetIsDead(Exception):
     pass
 
 
+class OutOfMana(Exception):
+    pass
+
+
 class CantDoCauseDead(Exception):
 
     def __init__(self, ent):
